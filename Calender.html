@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!"
+    />
+    <meta
+      name="keywords"
+      content="calendar, events, reminders, javascript, html, css, open source coding"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="calender-style.css" />
+    <title>Calendar</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="top-section">
+      
+        <div class="link">
+          <img
+            src="./assets/home.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          />
+          <a href="home.html">Home</a>
+        </div>
+        <div class="link">
+          <i class="fas fa-search"></i>
+          <a href="www.google.com">Search</a>
+        </div>
+        <div class="link">
+          <img
+            src="./assets/book.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          />
+          <a href="study.html">Study</a>
+        </div>
+        <div class="link">
+          <img
+            src="./assets/calender.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          />
+          <a href="Calender.html">calendar</a>
+        </div>
+        <div class="link">
+          <img
+            src="./assets/messenger.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          />
+          <a href="notification.html">notifications</a>
+        </div>
+        <div class="link">
+         <img src="assets/notification.png" style="height: 1rem; margin-right: 0.5rem" alt="">
+          <a href="#">Notifications</a>
+        </div>
+        
+      </div>
+      <div class="bottom-section">
+        <div class="link">
+          <i class="fas fa-ellipsis-h"></i>
+          <a href="#">More</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navbar">
+      <div class="bottom-link">
+        <a href="home.html">
+        <img
+          src="./assets/home.png"
+          style="height: 1rem; margin-right: 0.5rem"
+        /></a>
+      </div>
+
+      <div class="bottom-link">
+        <a href="study.html">
+        <img
+          src="./assets/book.png"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+      </a>
+      </div>
+      <div class="bottom-link">
+        <a href="Calender.html">
+        <img
+          src="./assets/calender.png"
+          style="height: 1rem; margin-right: 0.5rem"
+        /></a>
+      </div>
+
+      <div class="bottom-link">
+        <a href="notification.html">
+        <img
+          src="./assets/notification.png"
+          style="height: 1.5rem; margin-right: 0.5rem"
+        /></a>
+      </div>
+      <div class="bottom-link">
+        <a href="profile.html">
+        <img src="./assets/profile.png" style="height: 1.5rem; margin-right: 0.5rem" /></a>
+      </div>
+    </div>
+    <div class="wrapper">
+      <header>
+        <p class="current-date"></p>
+        <div class="icons">
+          <span id="prev" class="material-symbols-rounded"><</span>
+          <span id="next" class="material-symbols-rounded">></span>
+        </div>
+      </header>
+      <div class="calendar">
+        <ul class="weeks">
+          <li>Sun</li>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li>Sat</li>
+        </ul>
+        <ul class="days"></ul>
+      </div>
+      
+    </div>
+    <div class="event">
+        <h3>In september</h3>
+      Total Present : 21 days <br>
+      Total Absent :  5 days <br> 
+      Total Holiday : 3 days <br>
+      <br><br>
+      <h3>Holidays</h3> <br>
+      7 Sep	Thursday	Janmashtami	<br>
+      28 Sep	Thursday	Milad un-Nabi/Id-e-Milad	
+     </div>
+    
+
+    <script src="calender-script.js"></script>
+  </body>
+</html>

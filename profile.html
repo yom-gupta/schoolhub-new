@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-like Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        :root {
+  --white: #000;
+  --black: #f5f5f5;
+  --grey: #262626;
+  --light-grey: #a8a8a8;
+  --blue: #0095f6;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: #f5f5f5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  color: #000;
+  overflow-x: hidden;
+
+  width: 100vw;
+  margin: 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100vh;
+  background-color: black;
+  color: #f5f5f5;
+  padding: 1rem;
+  border-right: 1px solid var(--grey);
+}
+
+.sidebar .top-section .logo {
+  /* Define your logo properties here */
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
+.logo2 {
+  display: none;
+}
+
+.sidebar .link {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 0;
+  color: var(--white);
+  font-size: 0.8rem;
+}
+
+.sidebar .link i {
+  margin-right: 10px;
+}
+
+.bottom-navbar {
+  display: none;
+  border-top: 0px solid var(--grey);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0px;
+  margin: auto;
+  z-index: 2;
+}
+
+.bottom-link {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-section {
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+.main-container {
+  padding: 0rem;
+  display: block;
+  width: 45vw;
+  margin-left: auto;
+  height: auto;
+  overflow-y: hidden;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 50vw !important;
+}
+.all{
+  position: absolute;
+  left: 24%;
+  z-index: 1;
+}
+@media screen and (max-width: 900px) {
+  .sidebar,
+  .bottom-section {
+    width: 30px;
+  }
+  .all{
+  position: absolute;
+  left: 12%;
+}
+  .sidebar .link a {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+  .logo2 {
+    display: block;
+    width: 1rem;
+    margin-bottom: 1rem;
+    margin-left: -5px;
+  }
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 70vw !important;
+    
+  }
+  .suggested-for-you {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .bottom-navbar {
+    display: flex;
+    background-color: #000;
+    border-top: 1px solid var(--grey);
+  }
+  .bottom-link {
+    display: flex !important;
+  }
+  .main-container,
+  .stories-container {
+    width: 90vw !important;
+    
+  }
+  body{
+    display: block;
+  }
+  .all{
+  position: absolute;
+  left: auto;
+  padding: auto;
+}
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+        header a{
+            color: rgb(153, 75, 255);
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        .profile {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .profile-info p {
+            margin: 0;
+        }
+
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .post {
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media screen and (max-width: 600px) {
+            .posts {
+                display: block;
+            }}
+            .post {
+                margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top-section">
+          <!-- <img class="logo" src="./assets/insta-written.png" />
+          <img class="logo2" src="./assets/insta-logo.png" /> -->
+          <div class="link">
+            <img
+              src="./assets/home.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="home.html">Home</a>
+          </div>
+          <div class="link">
+            <i class="fas fa-search"></i>
+            <a href="https://www.google.com/">Search</a>
+          </div>
+          <div class="link">
+            <img
+              src="./assets/book.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="study.html">Study</a>
+          </div>
+          <div class="link">
+            <img
+              src="./assets/calender.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="Calender.html">calendar</a>
+          </div>
+          <div class="link">
+            <img
+              src="./assets/notification.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="notification.html">notifications</a>
+          </div>
+          <div class="link">
+           <img src="assets/profile.png" style="height: 1rem; margin-right: 0.5rem" alt="">
+            <a href="profile.html">Profile</a>
+          </div>
+          
+        </div>
+        <div class="bottom-section">
+          <div class="link">
+            <i class="fas fa-ellipsis-h"></i>
+            <a href="#">More</a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-navbar">
+        <div class="bottom-link">
+          <a href="home.html">
+          <img
+            src="./assets/home.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          /></a>
+        </div>
+  
+        <div class="bottom-link">
+          <a href="study.html">
+          <img
+            src="./assets/book.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          />
+        </a>
+        </div>
+        <div class="bottom-link">
+          <a href="Calender.html">
+          <img
+            src="./assets/calender.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          /></a>
+        </div>
+  
+        <div class="bottom-link">
+          <a href="notification.html">
+          <img
+            src="./assets/notification.png"
+            style="height: 1.5rem; margin-right: 0.5rem"
+          /></a>
+        </div>
+        <div class="bottom-link">
+          <a href="profile.html">
+          <img src="./assets/profile.png" style="height: 1.5rem; margin-right: 0.5rem" /></a>
+        </div>
+      </div>
+      <div class="all">
+    <header>
+        <h1>Profile</h1>
+        <a href="index.html">Logout</a>
+    </header>
+
+    <div class="profile">
+        <div class="profile-img">
+            <img src="assets/Rishabh.jpg" alt="Profile Picture">
+        </div>
+
+        <div class="profile-info">
+            <h2>Rishabh Gupta</h2>
+            <p>hey there i am rishabh from class 10-f form GBSSSno.3. My hobby is coding and sketching</p>
+        </div>
+
+        <div class="posts">
+            <div class="post" style="padding: 10px;">
+                📞 Contact Us 📧<br>
+        Have questions or need assistance? Feel free to reach out!<br>
+        📱 Phone: +91 9599326954<br>
+        📧 Email: yom.rishabh@gmail.com<br>
+        🌐 Website: <a href="https://yom-gupta.github.io/Schoolhub/">https://yom-gupta.github.io/Schoolhub/</a><br>
+        📍 Location:B-67 hari nagar badarpur new delhi-110044 <br>
+            </div>
+            <div class="post">
+                <img src="post2.jpg" alt="Post 2">
+            </div>
+            <div class="post">
+                <img src="post3.jpg" alt="Post 3">
+            </div>
+            <!-- Add more posts as needed -->
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>

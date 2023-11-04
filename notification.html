@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Notifications</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+body {
+  scroll-behavior: smooth;
+  background-color: #fff;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  color: #000;
+  overflow-x: hidden;
+  
+  width: 100vw;
+}
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: #f5f5f5;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  color: #000;
+  overflow-x: hidden;
+
+  width: 100vw;
+  margin: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  border-right: 1px solid var(--grey);
+}
+
+.sidebar .top-section .logo {
+  /* Define your logo properties here */
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
+.logo2 {
+  display: none;
+}
+
+.sidebar .link {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 0;
+  color: var(--white);
+  font-size: 0.8rem;
+}
+
+.sidebar .link i {
+  margin-right: 10px;
+}
+
+.bottom-navbar {
+  display: none;
+  border-top: 0px solid var(--grey);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin: auto;
+}
+
+.bottom-link {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-section {
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+.container {
+            max-width: 800px;
+            margin: 20px auto;
+            margin-left: 20%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+@media screen and (max-width: 900px) {
+  .sidebar,
+  .bottom-section {
+    width: 30px;
+  }
+  .sidebar .link a {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+  .logo2 {
+    display: block;
+    width: 1rem;
+    margin-bottom: 1rem;
+    margin-left: -5px;
+  }
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 70vw !important;
+  }
+  .suggested-for-you {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .bottom-navbar {
+    display: flex;
+    background-color: #000;
+    border-top: 1px solid var(--grey);
+  }
+  .bottom-link {
+    display: flex !important;
+  }
+  .main-container,
+  .stories-container {
+    width: 90vw !important;
+  }
+  ul{
+    margin-left: 0px;
+  }
+  .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+}
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        
+
+        .notification {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .notification h2 {
+            margin-top: 0;
+        }
+
+        .notification p {
+            margin-bottom: 0;
+        }
+
+        footer {
+            background-color: #0072b5;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top-section">
+          <!-- <img class="logo" src="./assets/insta-written.png" />
+          <img class="logo2" src="./assets/insta-logo.png" /> -->
+          <div class="link">
+            <img
+              src="./assets/home.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="home.html">Home</a>
+          </div>
+          <div class="link">
+            <i class="fas fa-search"></i>
+            <a href="https://www.google.com/">Search</a>
+          </div>
+          <div class="link">
+            <img
+              src="./assets/book.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="study.html">Study</a>
+          </div>
+          <div class="link">
+            <img
+              src="./assets/calender.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="Calender.html">calendar</a>
+          </div>
+          <div class="link">
+            <img
+              src="./assets/notification.png"
+              style="height: 1rem; margin-right: 0.5rem"
+            />
+            <a href="notification.html">notifications</a>
+          </div>
+          <div class="link">
+           <img src="assets/profile.png" style="height: 1rem; margin-right: 0.5rem" alt="">
+            <a href="profile.html">Profile</a>
+          </div>
+          
+        </div>
+        <div class="bottom-section">
+          <div class="link">
+            <i class="fas fa-ellipsis-h"></i>
+            <a href="#">More</a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-navbar">
+        <div class="bottom-link">
+          <a href="home.html">
+          <img
+            src="./assets/home.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          /></a>
+        </div>
+  
+        <div class="bottom-link">
+          <a href="study.html">
+          <img
+            src="./assets/book.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          />
+        </a>
+        </div>
+        <div class="bottom-link">
+          <a href="Calender.html">
+          <img
+            src="./assets/calender.png"
+            style="height: 1rem; margin-right: 0.5rem"
+          /></a>
+        </div>
+  
+        <div class="bottom-link">
+          <a href="notification.html">
+          <img
+            src="./assets/notification.png"
+            style="height: 1.5rem; margin-right: 0.5rem"
+          /></a>
+        </div>
+        <div class="bottom-link">
+          <a href="profile.html">
+          <img src="./assets/profile.png" style="height: 1.5rem; margin-right: 0.5rem" /></a>
+        </div>
+      </div>
+    <header>
+        <h1>Notifications</h1>
+    </header>
+    <div class="container">
+        <div class="notification">
+            <h2>Important Announcement</h2>
+            <p>Today is holiday account of Milad un-Nabi/id-e-Milad</p>
+            <p class="timestamp">Posted on: September 28, 2023</p>
+        </div>
+
+        <div class="notification">
+            <h2>School Event Reminder</h2>
+            <p>Don't forget about the upcoming school event on October 5th, 2023. We hope to see you there!</p>
+            <p class="timestamp">Posted on: September 25, 2023</p>
+        </div>
+    </div>
+    
+</body>
+</html>
